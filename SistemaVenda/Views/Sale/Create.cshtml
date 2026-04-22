@@ -25,21 +25,24 @@
                         <label for="produtoPesquisa" class="form-label">Pesquisar Produto (Nome ou Código)</label>
                         <div class="input-group">
                             <span class="input-group-text bg-white"><i class="fas fa-search text-muted"></i></span>
-                            <input type="text" id="produtoPesquisa" class="form-control border-start-0" placeholder="Ex: Batom Matte, Shampoo Keratina...">
+                            <input type="text" id="productSearch" class="form-control border-start-0" placeholder="Ex: Batom Matte, Shampoo Keratina...">
+                        </div>
+                        <div>
+                            <ul id="resultadoBusca" class="list-group position-absolute w-100 shadow-lg" style="z-index: 1000; display: none;">
                         </div>
                     </div>
 
                     <div class="mb-4">
                         <label for="quantidade" class="form-label">Quantidade</label>
-                        <input type="number" id="quantidade" class="form-control" value="1" min="1" step="1" oninput="validarQuantidade(this)">
+                        <input type="number" id="quantity" class="form-control" value="1" min="1" step="1" oninput="validarQuantidade(this)">
                         <div class="form-text text-danger" id="msgErroQtd" style="display:none;">A quantidade deve ser maior que zero.</div>
                     </div>
 
                     <div class="d-flex gap-2">
-                        <button type="button" class="btn btn-primary flex-grow-1" id="btnAdicionar">
+                        <button type="button" class="btn btn-primary flex-grow-1" id="btnAdd">
                             <i class="fas fa-plus-circle me-1"></i> Adicionar ao Carrinho
                         </button>
-                        <button type="button" class="btn btn-light border" id="btnLimparInputs">
+                        <button type="button" class="btn btn-light border" id="btnClean">
                             <i class="fas fa-eraser me-1"></i> Limpar
                         </button>
                     </div>
@@ -75,26 +78,8 @@
                     <h5 class="mb-0 fw-bold text-secondary">Produtos no Carrinho</h5>
                 </div>
                 <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table class="table table-hover mb-0 align-middle">
-                            <thead class="table-light">
-                                <tr>
-                                    <th class="ps-4">Produto</th>
-                                    <th class="text-center">Quantidade</th>
-                                    <th class="text-end">Preço Unit.</th>
-                                    <th class="text-end pe-4">Preço Total</th>
-                                    <th class="text-center">Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody id="listaCarrinho">
-                                <tr id="linhaVazia">
-                                    <td colspan="5" class="text-center py-5 text-muted">
-                                        <i class="fas fa-shopping-cart fa-3x mb-3 d-block opacity-25"></i>
-                                        Nenhum produto adicionado ainda.
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="table-responsive" id="productList">
+                        @Html.Partial("_ListPartial")
                     </div>
                 </div>
             </div>
@@ -113,34 +98,6 @@
 
 @section Scripts {
     <script src="~/js/site.js">
-        // // Função para garantir que não haja valores negativos ou zero
-        // function validarQuantidade(input) {
-        //     const erro = document.getElementById('msgErroQtd');
-        //     if (input.value <= 0) {
-        //         input.classList.add('is-invalid');
-        //         erro.style.display = 'block';
-        //     } else {
-        //         input.classList.remove('is-invalid');
-        //         erro.style.display = 'none';
-        //     }
-        // }
-
-        // // Script para limpar apenas os inputs de pesquisa
-        // document.getElementById('btnLimparInputs').addEventListener('click', function() {
-        //     document.getElementById('produtoPesquisa').value = '';
-        //     document.getElementById('quantidade').value = '1';
-        // });
-
-        // // Funções de exemplo (serão integradas com o backend futuramente)
-        // function limparCarrinho() {
-        //     if(confirm("Deseja realmente limpar toda a lista?")) {
-        //         location.reload(); 
-        //     }
-        // }
-
-        // function finalizarVenda() {
-        //     alert("Processando venda...");
-        // }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 }

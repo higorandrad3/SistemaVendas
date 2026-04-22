@@ -1,0 +1,36 @@
+﻿@model List<Product>
+
+<table class="table table-hover mb-0 align-middle">
+    <thead class="table-light">
+        <tr>
+            <th class="ps-4">Produto</th>
+            <th class="text-center">Quantidade</th>
+            <th class="text-end">Preço Unit.</th>
+            <th class="text-end pe-4">Preço Total</th>
+            <th class="text-center">Ações</th>
+        </tr>
+    </thead>
+    <tbody id="listaCarrinho">
+        @if (Model is null)
+        {
+            <tr id="linhaVazia">
+                <td colspan="5" class="text-center py-5 text-muted">
+                    <i class="fas fa-shopping-cart fa-3x mb-3 d-block opacity-25"></i>
+                    Nenhum produto adicionado ainda.
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach(var product in Model)
+            {
+                <tr>
+                    <td class="ps-4">@product.Name</td>
+                    <td class="text-center">@product.StockQuantity</td>
+                    <td class="text-end">@product.SalePrice</td>
+                    <td class="text-end pe-4">@(@product.SalePrice * @product.StockQuantity)</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
