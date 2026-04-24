@@ -1,4 +1,6 @@
-﻿// Função para garantir que não haja valores negativos ou zero
+﻿let productsInCart = [];
+
+// Função para garantir que não haja valores negativos ou zero
 function validarQuantidade(input) {
     const erro = document.getElementById('msgErroQtd');
     if (input.value <= 0) {
@@ -27,40 +29,60 @@ function finalizarVenda() {
     alert("Processando venda...");
 }
 
+function addProductInCart() {
+    const productInfo = JSON.parse(document.getElementById('productSearch').getAttribute('data-id-selecionado'));
+    productInfo.quantity = document.getElementById('quantity').value;
 
-//Atualizar lista do carrinho de venda
-$(document).ready(function () {
-    // 1. Evento de clique para Adicionar Produto
-    $("#btnAdd").on("click", function (e) {
-        e.preventDefault();
+    productsInCart.push(productInfo);
+    console.log(productInfo.id);
+    console.log(productInfo.nome);
+    console.log(productInfo.price)
+    console.log(productInfo.quantity);
 
-        // Chamada AJAX para o Controller
-        $.ajax({
-            url: '/Sale/GetProductsInCart', // Tag Helper para gerar a URL correta
-            type: 'GET',
-            success: function (response) {
-                // 'response' deve ser o HTML da sua PartialView
-                $("#productList").html(response);
-
-                // Limpa os campos de entrada
-                $("#productSearch").val('');
-                $("#quantity").val('1');
+    const response = fetch(
+        `/Sale/GetProductsInCart`, {
+            method: "POST",
+            headers: {
+                'Content-Type':'application/json'
             },
-            error: function (xhr, status, error) {
-                console.error("Erro na requisição:", error);
-                alert("Não foi possível adicionar o produto.");
-            }
-        });
+            body: JSON.stringify(productsInCart)
     });
+    if (response.ok) {
+        console.log("sucess")
+    }
 
-    // 2. Evento para Limpar os Inputs (sem recarregar a página)
+    //fetch("/Sale/UpdateCart", {
+    //    method: "POST",
+    //    headers: {
+    //        'Content-Type': 'application/json'
+    //    },
+    //    body: JSON.stringify(id)
+    //}).then(res => res.ok ? console.log("sucess") : console.log("fail"));
+
+    //$.ajax({
+    //    url: '/Sale/GetProductsInCart', // Tag Helper para gerar a URL correta
+    //    type: 'GET',
+    //    success: function (response) {
+    //        // 'response' deve ser o HTML da sua PartialView
+    //        $("#productList").html(response);
+
+    //        // Limpa os campos de entrada
+    //        $("#productSearch").val('');
+    //        $("#quantity").val('1');
+    //    },
+    //    error: function (xhr, status, error) {
+    //        console.error("Erro na requisição:", error);
+    //        alert("Não foi possível adicionar o produto.");
+    //    }
+    //});
+
     $("#btnClean").on("click", function () {
         $("#productSearch").val('');
         $("#quantity").val('1');
         $("#msgErroQtd").hide();
         $("#quantity").removeClass('is-invalid');
     });
-});
+}
 
 //autocomplete
 $(document).ready(function () {
@@ -82,10 +104,10 @@ $(document).ready(function () {
                         $.each(data, function (i, item) {
                             $listaResultado.append(`
                                 <a href="#" class="list-group-item list-group-item-action item-selecionado"
-                                   data-nome=${item.name}>
-                                    <div class="d-flex justify-content-between">
-                                        <span>${item.name}</span>
-                                    </div>
+                                    data-id=${item.id}
+                                   data-name="${item.name}"
+                                   data-price=${item.salePrice}
+                                   <span>${item.name}</span>
                                 </a>
                             `);
                         });
@@ -103,14 +125,22 @@ $(document).ready(function () {
     $(document).on("click", ".item-selecionado", function (e) {
         e.preventDefault();
 
-        const id = $(this).data("id");
-        const nome = $(this).data("nome");
+        const productInfo = {
+            id: $(this).data("id"),
+            nome: $(this).data("name"),
+            price: $(this).data("price"),
+            qnatity: 0
+        };
+
+        //const id = $(this).data("id");
+        //const nome = $(this).data("name");
+
 
         // Preenche o input com o nome selecionado
-        $inputBusca.val(nome);
+        $inputBusca.val(productInfo.nome);
 
         // Armazena o ID em um atributo oculto para o botão "Adicionar" usar depois
-        $inputBusca.attr("data-id-selecionado", id);
+        $inputBusca.attr("data-id-selecionado", JSON.stringify(productInfo));
 
         // Esconde a lista
         $listaResultado.hide();
@@ -123,3 +153,17 @@ $(document).ready(function () {
         }
     });
 });
+
+function saveImLocalStorage() {
+    localStorage.setItem('Cart', JSON.stringify(productsInCart));
+}
+
+function loadLocalStorage() {
+    const data = localStorage.getItem('Cart')
+
+    if (data) {
+        productsInCart = JSON.parse(data);
+    }
+}
+function updateCart() {
+}

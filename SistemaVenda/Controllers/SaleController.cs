@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SistemaVenda.Context;
+using SistemaVenda.Dto;
+using SistemaVenda.Service;
 
 namespace SistemaVenda.Controllers
 {
@@ -10,10 +12,24 @@ namespace SistemaVenda.Controllers
             return View();
         }
 
-        [HttpGet]
-        public PartialViewResult GetProductsInCart()
+        [HttpPost]
+        public IActionResult UpdateCart([FromBody] int id)
         {
-            return PartialView("_ListPartial", Repository.GetProducts());
+            var product = Repository.GetProducts().FirstOrDefault(p => p.Id == id);
+
+            if (product is null)
+                return NotFound();
+
+            CartService.AddProduct(product);
+
+            return Ok();
+        }
+
+        [HttpPost]
+        public PartialViewResult GetProductsInCart([FromBody] List<ProductDto> product)
+        {
+            foreach (var intem in product) Console.WriteLine(intem.name);
+            return PartialView("_ListPartial", CartService.GetProductsInCart());
         }
 
         public IActionResult GetProductByName(string termo)

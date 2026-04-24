@@ -96,4 +96,4 @@ C:\Projetos\SistemaVenda\SistemaVenda\obj\Debug\net10.0\SistemaVenda.genruntimec
 C:\Projetos\SistemaVenda\SistemaVenda\obj\Debug\net10.0\ref\SistemaVenda.dll
 C:\Projetos\SistemaVenda\SistemaVenda\obj\Debug\net10.0\compressed\1qk21edg8n-{0}-vw2jn3x7qf-vw2jn3x7qf.gz
 C:\Projetos\SistemaVenda\SistemaVenda\obj\Debug\net10.0\SistemaVenda.sourcelink.json
-C:\Projetos\SistemaVenda\SistemaVenda\obj\Debug\net10.0\compressed\heyxglbhgt-{0}-psfd7e4w0p-psfd7e4w0p.gz
+C:\Projetos\SistemaVenda\SistemaVenda\obj\Debug\net10.0\compressed\heyxglbhgt-{0}-s4d04u92w8-s4d04u92w8.gz
