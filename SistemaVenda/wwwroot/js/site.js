@@ -12,12 +12,6 @@ function validarQuantidade(input) {
     }
 }
 
-// Script para limpar apenas os inputs de pesquisa
-document.getElementById('btnClean').addEventListener('click', function () {
-    document.getElementById('productSearch').value = '';
-    document.getElementById('quantity').value = '1';
-});
-
 // Funções de exemplo (serão integradas com o backend futuramente)
 function limparCarrinho() {
     if (confirm("Deseja realmente limpar toda a lista?")) {
@@ -29,59 +23,44 @@ function finalizarVenda() {
     alert("Processando venda...");
 }
 
-function addProductInCart() {
-    const productInfo = JSON.parse(document.getElementById('productSearch').getAttribute('data-id-selecionado'));
-    productInfo.quantity = document.getElementById('quantity').value;
+async function addProductInCart() {
+    let productInfo = JSON.parse(document.getElementById('productSearch').getAttribute('data-id-selecionado'));
 
-    productsInCart.push(productInfo);
-    console.log(productInfo.id);
-    console.log(productInfo.nome);
-    console.log(productInfo.price)
-    console.log(productInfo.quantity);
+    if (productInfo == null) {
+        alert("Selecione um produto e sua quantidade!!");
+        return;
+    }
+    productInfo.quantity = parseInt(document.getElementById('quantity').value);
 
-    const response = fetch(
-        `/Sale/GetProductsInCart`, {
-            method: "POST",
-            headers: {
-                'Content-Type':'application/json'
-            },
-            body: JSON.stringify(productsInCart)
-    });
-    if (response.ok) {
-        console.log("sucess")
+    let productExist = productsInCart.find(p => p.id == productInfo.id)
+
+    if (productExist) {
+        productExist.quantity += parseInt(productInfo.quantity);
+    }
+    else {
+        productsInCart.push(productInfo);
     }
 
-    //fetch("/Sale/UpdateCart", {
-    //    method: "POST",
-    //    headers: {
-    //        'Content-Type': 'application/json'
-    //    },
-    //    body: JSON.stringify(id)
-    //}).then(res => res.ok ? console.log("sucess") : console.log("fail"));
-
-    //$.ajax({
-    //    url: '/Sale/GetProductsInCart', // Tag Helper para gerar a URL correta
-    //    type: 'GET',
-    //    success: function (response) {
-    //        // 'response' deve ser o HTML da sua PartialView
-    //        $("#productList").html(response);
-
-    //        // Limpa os campos de entrada
-    //        $("#productSearch").val('');
-    //        $("#quantity").val('1');
-    //    },
-    //    error: function (xhr, status, error) {
-    //        console.error("Erro na requisição:", error);
-    //        alert("Não foi possível adicionar o produto.");
-    //    }
-    //});
-
-    $("#btnClean").on("click", function () {
-        $("#productSearch").val('');
-        $("#quantity").val('1');
-        $("#msgErroQtd").hide();
-        $("#quantity").removeClass('is-invalid');
+    const response = await fetch(
+        `/Sale/GetProductsInCart`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(productsInCart)
     });
+    if (response.ok) {
+
+        const html = await response.text();
+        document.getElementById('productList').innerHTML = html;
+    }
+    resetProductInfo();
+}
+
+function resetProductInfo() {
+    document.getElementById('quantity').value = '1';
+    document.getElementById('productSearch').value = '';
+    document.getElementById('productSearch').removeAttribute('data-id-selecionado');
 }
 
 //autocomplete
@@ -107,7 +86,7 @@ $(document).ready(function () {
                                     data-id=${item.id}
                                    data-name="${item.name}"
                                    data-price=${item.salePrice}
-                                   <span>${item.name}</span>
+                                   <span>ID: ${item.id} | ${item.name} | R$: ${item.salePrice}</span >
                                 </a>
                             `);
                         });
@@ -127,7 +106,7 @@ $(document).ready(function () {
 
         const productInfo = {
             id: $(this).data("id"),
-            nome: $(this).data("name"),
+            name: $(this).data("name"),
             price: $(this).data("price"),
             qnatity: 0
         };
@@ -137,7 +116,7 @@ $(document).ready(function () {
 
 
         // Preenche o input com o nome selecionado
-        $inputBusca.val(productInfo.nome);
+        $inputBusca.val(productInfo.name);
 
         // Armazena o ID em um atributo oculto para o botão "Adicionar" usar depois
         $inputBusca.attr("data-id-selecionado", JSON.stringify(productInfo));

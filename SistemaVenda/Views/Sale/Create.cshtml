@@ -42,7 +42,7 @@
                         <button type="button" class="btn btn-primary flex-grow-1" id="btnAdd" onclick="addProductInCart()">
                             <i class="fas fa-plus-circle me-1"></i> Adicionar ao Carrinho
                         </button>
-                        <button type="button" class="btn btn-light border" id="btnClean">
+                        <button type="button" class="btn btn-light border" id="btnClean" onclick="resetProductInfo()">
                             <i class="fas fa-eraser me-1"></i> Limpar
                         </button>
                     </div>
@@ -79,7 +79,7 @@
                 </div>
                 <div class="card-body p-0">
                     <div class="table-responsive" id="productList">
-                        @Html.Partial("_ListPartial")
+                        @await Html.PartialAsync("_ListPartial")
                     </div>
                 </div>
             </div>

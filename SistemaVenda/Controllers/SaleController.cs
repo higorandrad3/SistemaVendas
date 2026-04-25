@@ -26,10 +26,9 @@ namespace SistemaVenda.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult GetProductsInCart([FromBody] List<ProductDto> product)
+        public PartialViewResult GetProductsInCart([FromBody] List<ProductDto> products)
         {
-            foreach (var intem in product) Console.WriteLine(intem.name);
-            return PartialView("_ListPartial", CartService.GetProductsInCart());
+            return PartialView("_ListPartial", products);
         }
 
         public IActionResult GetProductByName(string termo)
@@ -37,8 +36,7 @@ namespace SistemaVenda.Controllers
             var products = Repository.GetProducts();
 
             var res = products.Where(p => p.Name.StartsWith(termo, StringComparison.OrdinalIgnoreCase)).ToList();
-            if (!res.Any())
-                Console.WriteLine("é null");
+            
             return Json(res);
         }
     }
