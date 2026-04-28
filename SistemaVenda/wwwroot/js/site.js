@@ -12,20 +12,23 @@ function validarQuantidade(input) {
     }
 }
 
-
-
 // Funções de exemplo (serão integradas com o backend futuramente)
 function limparCarrinho() {
     if (confirm("Deseja realmente limpar toda a lista?")) {
         location.reload();
-        const thaina = 1;
-
-        alert(thaina)
     }
 }
 
-function finalizarVenda() {
-    alert("Processando venda...");
+async function finalizeSale() {
+    const response = await fetch(
+        `/Sale/FinalizeSale`, {
+            method: "POST",
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify(productsInCart)
+        }
+    );
 }
 
 async function addProductInCart() {
@@ -46,20 +49,43 @@ async function addProductInCart() {
         productsInCart.push(productInfo);
     }
 
-    const response = await fetch(
-        `/Sale/GetProductsInCart`, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(productsInCart)
-    });
-    if (response.ok) {
+    //const response = await fetch(
+    //    `/Sale/GetProductsInCart`, {
+    //    method: "POST",
+    //    headers: {
+    //        'Content-Type': 'application/json'
+    //    },
+    //    body: JSON.stringify(productsInCart)
+    //});
+    //if (response.ok) {
 
-        const html = await response.text();
-        document.getElementById('productList').innerHTML = html;
-    }
+    //    const html = await response.text();
+    //    document.getElementById('productList').innerHTML = html;
+    //}
     resetProductInfo();
+    renderTableRows();
+}
+
+function renderTableRows() {
+    const tableBody = document.getElementById('listaCarrinho');
+
+    // Limpa o conteúdo atual da tabela
+    tableBody.innerHTML = '';
+
+    // Cria as linhas baseadas nos dados
+    productsInCart.forEach(product => {
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+            <td class="ps-4">${product.name}</td>
+            <td class="text-center">${product.quantity}</td>
+            <td class="text-end">R$ ${product.price}</td>
+            <td class="text-end pe-4">R$ ${product.price * product.quantity}</td>
+            <td class="text-center"><a>Remover</a></td>
+        `;
+
+        tableBody.appendChild(row);
+    });
 }
 
 function resetProductInfo() {
@@ -70,38 +96,38 @@ function resetProductInfo() {
 
 //autocomplete
 $(document).ready(function () {
-    const $inputBusca = $("#productSearch");
-    const $listaResultado = $("#resultadoBusca");
+    const $inputSearch = $("#productSearch");
+    const $resultList = $("#resultadoBusca");
 
-    $inputBusca.on("keyup", function () {
-        let termo = $(this).val();
+    $inputSearch.on("keyup", function () {
+        let term = $(this).val();
 
-        if (termo.length >= 3) {
+        if (term.length >= 3) {
             $.ajax({
                 url: '/Sale/GetProductByName', // Sua rota no Controller
                 type: 'GET',
-                data: { termo: termo },
+                data: { term: term },
                 success: function (data) {
-                    $listaResultado.empty().show();
+                    $resultList.empty().show();
 
                     if (data.length > 0) {
                         $.each(data, function (i, item) {
-                            $listaResultado.append(`
+                            $resultList.append(`
                                 <a href="#" class="list-group-item list-group-item-action item-selecionado"
                                     data-id=${item.id}
                                    data-name="${item.name}"
                                    data-price=${item.salePrice}
-                                   <span>ID: ${item.id} | ${item.name} | R$: ${item.salePrice}</span >
+                                   <span>ID: ${item.id} | Nome: ${item.name}</span >
                                 </a>
                             `);
                         });
                     } else {
-                        $listaResultado.append('<li class="list-group-item text-muted">Nenhum produto encontrado</li>');
+                        $resultList.append('<li class="list-group-item text-muted">Nenhum produto encontrado</li>');
                     }
                 }
             });
         } else {
-            $listaResultado.hide();
+            $resultList.hide();
         }
     });
 
@@ -109,36 +135,26 @@ $(document).ready(function () {
     $(document).on("click", ".item-selecionado", function (e) {
         e.preventDefault();
 
-        const id = $(this).data("id");
-
-        
-
-        const productExist = productsInCart.find();
-
         const productInfo = {
             id: $(this).data("id"),
             name: $(this).data("name"),
-            price: $(this).data("price"),
-            qnatity: 0
+            price: $(this).data("price")
         };
-        //const id = $(this).data("id");
-        //const nome = $(this).data("name");
-
 
         // Preenche o input com o nome selecionado
-        $inputBusca.val(productInfo.name);
+        $inputSearch.val(productInfo.name);
 
         // Armazena o ID em um atributo oculto para o botão "Adicionar" usar depois
-        $inputBusca.attr("data-id-selecionado", JSON.stringify(productInfo));
+        $inputSearch.attr("data-id-selecionado", JSON.stringify(productInfo));
 
         // Esconde a lista
-        $listaResultado.hide();
+        $resultList.hide();
     });
 
     // Fecha a lista se clicar fora dela
     $(document).click(function (e) {
         if (!$(e.target).closest('.position-relative').length) {
-            $listaResultado.hide();
+            $resultList.hide();
         }
     });
 });
