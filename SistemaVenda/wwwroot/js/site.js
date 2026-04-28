@@ -12,10 +12,15 @@ function validarQuantidade(input) {
     }
 }
 
+
+
 // Funções de exemplo (serão integradas com o backend futuramente)
 function limparCarrinho() {
     if (confirm("Deseja realmente limpar toda a lista?")) {
         location.reload();
+        const thaina = 1;
+
+        alert(thaina)
     }
 }
 
@@ -104,13 +109,18 @@ $(document).ready(function () {
     $(document).on("click", ".item-selecionado", function (e) {
         e.preventDefault();
 
+        const id = $(this).data("id");
+
+        
+
+        const productExist = productsInCart.find();
+
         const productInfo = {
             id: $(this).data("id"),
             name: $(this).data("name"),
             price: $(this).data("price"),
             qnatity: 0
         };
-
         //const id = $(this).data("id");
         //const nome = $(this).data("name");
 
