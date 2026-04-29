@@ -1,6 +1,7 @@
 ﻿namespace SistemaVenda.Dto
 {
-    public record ProductSoldDto(
+    public record ProductDto(
         int id,
-        int quantity);
+        string name,
+        decimal salePrice);
 }

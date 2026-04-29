@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using SistemaVenda.Context;
 using SistemaVenda.Dto;
 using SistemaVenda.Models;
-using SistemaVenda.Service;
+using SistemaVenda.Repositories.Interfaces;
 
 namespace SistemaVenda.Controllers
 {
     public class SaleController : Controller
     {
+        private readonly IProductRepository _productRepository;
         public IActionResult Create()
         {
             return View();
@@ -17,16 +17,8 @@ namespace SistemaVenda.Controllers
         [HttpGet]
         public IActionResult GetProductByName(string term)
         {
-            var products = Repository.GetProducts();
+            var res = _productRepository.GetProductsByTerm(term);
 
-            var res = products.Select(p => new {
-                p.Id,
-                p.Name,
-                p.SalePrice
-            })
-            .Where(p => p.Name.Contains(term, StringComparison.OrdinalIgnoreCase))
-            .ToList();
-            
             return Json(res);
         }
 
@@ -36,9 +28,9 @@ namespace SistemaVenda.Controllers
             if (productsSoldDto is null)
                 return View("Create");
 
-            List<Product> productsSold = new List<Product>(); 
+            List<Product> productsSold = new List<Product>();
 
-            foreach(var productSold in productsSoldDto)
+            foreach (var productSold in productsSoldDto)
             {
                 var product = Repository.GetProducts().Find(p => p.Id == productSold.id);
 
