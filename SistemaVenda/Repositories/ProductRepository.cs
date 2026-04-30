@@ -12,10 +12,9 @@ namespace SistemaVenda.Repositories
 
         public async Task<List<ProductDto>> GetProductsByTermAsync(string term)
         {
-            var products = Repository.GetProducts();
-
             var res = await _context.Products
-                .Where(p => p.Name.Contains(term, StringComparison.OrdinalIgnoreCase))
+                .AsNoTracking()
+                .Where(p => p.Name.Contains(term))
                 .Select(p => new ProductDto
                 (
                     p.Id,
@@ -27,9 +26,12 @@ namespace SistemaVenda.Repositories
             return res;
         }
 
-        public Task<List<ProductDto>> GetProductsFromIdsAsync(int id)
+        public Task<List<ProductDto>> GetProductsFromIdsAsync(List<int> ids)
         {
-            throw new NotImplementedException();
+            _context.Products
+                .AsNoTracking()
+                .Where(p => ids.Contains(p.Id))
+                .ToListAsync();
         }
     }
 }

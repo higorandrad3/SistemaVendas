@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using SistemaVenda.Context;
+using SistemaVenda.Repositories;
+using SistemaVenda.Repositories.Interfaces;
+using SistemaVenda.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,11 +10,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlite(connectionString);
 });
+
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<OrderService>();
 
 var app = builder.Build();
 
