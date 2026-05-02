@@ -20,6 +20,11 @@ function limparCarrinho() {
 }
 
 async function finalizeSale() {
+    if (productsInCart === 0) {
+        alert("O carrinho está vazio. Adicione itens ao carrinho!");
+        return;
+    }
+
     const response = await fetch(
         `/Sale/FinalizeSale`, {
             method: "POST",
@@ -29,6 +34,9 @@ async function finalizeSale() {
             body: JSON.stringify(productsInCart)
         }
     );
+    if (response.redirected) {
+        window.location.href = response.url;
+    }
 }
 
 async function addProductInCart() {
@@ -49,19 +57,6 @@ async function addProductInCart() {
         productsInCart.push(productInfo);
     }
 
-    //const response = await fetch(
-    //    `/Sale/GetProductsInCart`, {
-    //    method: "POST",
-    //    headers: {
-    //        'Content-Type': 'application/json'
-    //    },
-    //    body: JSON.stringify(productsInCart)
-    //});
-    //if (response.ok) {
-
-    //    const html = await response.text();
-    //    document.getElementById('productList').innerHTML = html;
-    //}
     resetProductInfo();
     renderTableRows();
 }

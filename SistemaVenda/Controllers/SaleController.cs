@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SistemaVenda.Dto;
+using SistemaVenda.Models;
 using SistemaVenda.Repositories.Interfaces;
 using SistemaVenda.Services;
 
@@ -33,11 +34,17 @@ namespace SistemaVenda.Controllers
         public async Task<IActionResult> FinalizeSale([FromBody] List<ProductSoldDto> productsSoldDto)
         {
             if (productsSoldDto is null)
-                return View();
+                return BadRequest("O carrinho de produto está vazia!");
 
             var order = await _orderService.CreateOrderAsync(productsSoldDto);
 
-            return Ok();
+            return RedirectToAction("Summary", order);
+        }
+
+        [HttpGet]
+        public IActionResult Summary(Order order)
+        {
+            return View(order);
         }
     }
 }
