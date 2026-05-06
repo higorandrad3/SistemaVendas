@@ -7,7 +7,10 @@ namespace SistemaVenda.Repositories.Interfaces
     {
         Task<List<ProductDto>> GetProductsByTermAsync(string term);
         Task<List<Product>> GetProductsFromIdsAsync(List<int> id);
-
-        void Popula();
+        Task<Product> GetByIdAsync(int id);
+        Task<List<Product>> GetAllProductsAsync();
+        Task AddAsync(Product product);
+        Task Update(Product product);
+        Task Save();
     }
 }

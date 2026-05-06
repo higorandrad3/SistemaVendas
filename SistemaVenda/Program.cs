@@ -18,6 +18,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<OrderService>();
 
+builder.Services.AddAutoMapper();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

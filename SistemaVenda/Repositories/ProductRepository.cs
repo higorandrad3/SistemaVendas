@@ -11,6 +11,21 @@ namespace SistemaVenda.Repositories
         private readonly AppDbContext _context;
         public ProductRepository(AppDbContext context) => _context = context;
 
+        public async Task AddAsync(Product product)
+        {
+            await _context.AddAsync(product);
+        }
+
+        public async Task<List<Product>> GetAllProductsAsync()
+        {
+            return await _context.Products.ToListAsync();
+        }
+
+        public async Task<Product> GetByIdAsync(int id)
+        {
+            return await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+        }
+
         public async Task<List<ProductDto>> GetProductsByTermAsync(string term)
         {
             var res = await _context.Products
@@ -37,43 +52,16 @@ namespace SistemaVenda.Repositories
             return res;
         }
 
-        public void Popula()
+        public async Task Save()
         {
-            var products = new List<Product>() {
-            new Product(){
-            Id = 1,
-            Name = "Baton",
-            Description = "Baton para labios",
-            Brand = "Natura",
-            ExpirationDate = DateTime.Now,
-            ManufacturingDate = DateTime.Now,
-            ImageUrl = "",
-            IsActive = true,
-            SalePrice = 25.50m,
-            PurchasePrice = 0,
-            SKU = 1,
-            StockQuantity = 100
-            },
+            await _context.SaveChangesAsync();
+        }
 
-            new Product(){
-            Id = 2,
-            Name = "Perfume Homem coragio",
-            Description = "PErfume para labios",
-            Brand = "O Boticario",
-            ExpirationDate = DateTime.Now,
-            ManufacturingDate = DateTime.Now,
-            ImageUrl = "",
-            IsActive = true,
-            SalePrice = 250.50m,
-            PurchasePrice = 0,
-            SKU = 1,
-            StockQuantity = 50
-            }
-            };
+        public async Task Update(Product productModified)
+        {
+            _context.Products.Update(productModified);
 
-            _context.AddRange(products);
-            _context.SaveChanges();
-            
+            await Save();
         }
     }
 }
