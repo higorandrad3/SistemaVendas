@@ -31,6 +31,7 @@ namespace SistemaVenda.Controllers
         }
 
         [HttpPost]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> FinalizeSale([FromBody] List<ProductSoldDto> productsSoldDto)
         {
             if (productsSoldDto is null)
@@ -38,7 +39,7 @@ namespace SistemaVenda.Controllers
 
             var order = await _orderService.CreateOrderAsync(productsSoldDto);
 
-            return RedirectToAction("Summary", order);
+            return RedirectToAction(nameof(Summary), order);
         }
 
         [HttpGet]

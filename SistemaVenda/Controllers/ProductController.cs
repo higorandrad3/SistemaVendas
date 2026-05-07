@@ -32,13 +32,17 @@ namespace SistemaVenda.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(ProductViewModel productVM)
+        public async Task<IActionResult> Create(ProductViewModel productVM)
         {
             if (!ModelState.IsValid)
                 return View(productVM);
 
+            var product = _autoMapper.Map<Product>(productVM);
 
-            return View();
+            await _productRepository.AddAsync(product);
+            await _productRepository.SaveAsync();
+
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpGet("{id:int:min(1)}")]
@@ -54,7 +58,8 @@ namespace SistemaVenda.Controllers
             return View(productVM);
         }
 
-        [HttpPost]
+        [HttpPost("{id:int}")]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Edit([FromRoute] int id, ProductViewModel productVM)
         {
             if (id != productVM.Id)
@@ -70,9 +75,9 @@ namespace SistemaVenda.Controllers
 
             product = _autoMapper.Map<Product>(productVM);
 
-            await _productRepository.Update(product);
+            await _productRepository.UpdateAsync(product);
 
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
     }
 }

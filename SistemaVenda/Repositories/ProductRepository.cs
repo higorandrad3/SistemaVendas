@@ -23,7 +23,7 @@ namespace SistemaVenda.Repositories
 
         public async Task<Product> GetByIdAsync(int id)
         {
-            return await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+            return await _context.Products.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<List<ProductDto>> GetProductsByTermAsync(string term)
@@ -52,16 +52,16 @@ namespace SistemaVenda.Repositories
             return res;
         }
 
-        public async Task Save()
+        public async Task SaveAsync()
         {
             await _context.SaveChangesAsync();
         }
 
-        public async Task Update(Product productModified)
+        public async Task UpdateAsync(Product productModified)
         {
             _context.Products.Update(productModified);
 
-            await Save();
+            await SaveAsync();
         }
     }
 }

@@ -32,7 +32,7 @@ namespace SistemaVenda.ViewModel
         [Required(ErrorMessage = "A data de validade é obrigatória.")]
         public DateTime? ExpirationDate { get; set; }
 
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
 
         public bool IsActive { get; set; } = true;
     }

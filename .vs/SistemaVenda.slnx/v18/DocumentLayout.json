@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Projetos\\SistemaVenda\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|c:\\projetos\\sistemavenda\\sistemavenda\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|solutionrelative:sistemavenda\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|c:\\projetos\\sistemavenda\\sistemavenda\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|solutionrelative:sistemavenda\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|c:\\projetos\\sistemavenda\\sistemavenda\\automapper\\configautomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|solutionrelative:sistemavenda\\automapper\\configautomapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|c:\\projetos\\sistemavenda\\sistemavenda\\controllers\\salecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|solutionrelative:sistemavenda\\controllers\\salecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|c:\\projetos\\sistemavenda\\sistemavenda\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,8 +19,12 @@
       "RelativeMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|solutionrelative:sistemavenda\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|c:\\projetos\\sistemavenda\\sistemavenda\\repositories\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|solutionrelative:sistemavenda\\repositories\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|c:\\projetos\\sistemavenda\\sistemavenda\\viewmodel\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|solutionrelative:sistemavenda\\viewmodel\\productviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|c:\\projetos\\sistemavenda\\sistemavenda\\views\\product\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|solutionrelative:sistemavenda\\views\\product\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,53 +39,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Program.cs",
-              "RelativeDocumentMoniker": "SistemaVenda\\Program.cs",
-              "ToolTip": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Program.cs",
-              "RelativeToolTip": "SistemaVenda\\Program.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAABQAAAAhAAAAAAAAAA==",
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Services\\OrderService.cs",
+              "RelativeDocumentMoniker": "SistemaVenda\\Services\\OrderService.cs",
+              "ToolTip": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Services\\OrderService.cs",
+              "RelativeToolTip": "SistemaVenda\\Services\\OrderService.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBYAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T20:16:22.979Z",
+              "WhenOpened": "2026-05-07T20:23:54.632Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ConfigAutoMapper.cs",
-              "DocumentMoniker": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\AutoMapper\\ConfigAutoMapper.cs",
-              "RelativeDocumentMoniker": "SistemaVenda\\AutoMapper\\ConfigAutoMapper.cs",
-              "ToolTip": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\AutoMapper\\ConfigAutoMapper.cs",
-              "RelativeToolTip": "SistemaVenda\\AutoMapper\\ConfigAutoMapper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "SaleController.cs",
+              "DocumentMoniker": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Controllers\\SaleController.cs",
+              "RelativeDocumentMoniker": "SistemaVenda\\Controllers\\SaleController.cs",
+              "ToolTip": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Controllers\\SaleController.cs",
+              "RelativeToolTip": "SistemaVenda\\Controllers\\SaleController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAApwCYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T20:15:58.208Z",
+              "WhenOpened": "2026-05-07T20:14:40.295Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "IProductRepository.cs",
-              "DocumentMoniker": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Repositories\\Interfaces\\IProductRepository.cs",
-              "RelativeDocumentMoniker": "SistemaVenda\\Repositories\\Interfaces\\IProductRepository.cs",
-              "ToolTip": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Repositories\\Interfaces\\IProductRepository.cs",
-              "RelativeToolTip": "SistemaVenda\\Repositories\\Interfaces\\IProductRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Title": "ProductViewModel.cs",
+              "DocumentMoniker": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\ViewModel\\ProductViewModel.cs",
+              "RelativeDocumentMoniker": "SistemaVenda\\ViewModel\\ProductViewModel.cs",
+              "ToolTip": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\ViewModel\\ProductViewModel.cs",
+              "RelativeToolTip": "SistemaVenda\\ViewModel\\ProductViewModel.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAswCIAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T19:42:03.672Z",
+              "WhenOpened": "2026-05-07T20:05:03.894Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ProductRepository.cs",
-              "DocumentMoniker": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Repositories\\ProductRepository.cs",
-              "RelativeDocumentMoniker": "SistemaVenda\\Repositories\\ProductRepository.cs",
-              "ToolTip": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Repositories\\ProductRepository.cs",
-              "RelativeToolTip": "SistemaVenda\\Repositories\\ProductRepository.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAvwD8AAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T19:41:20.283Z",
+              "DocumentIndex": 5,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Views\\Product\\Edit.cshtml",
+              "RelativeDocumentMoniker": "SistemaVenda\\Views\\Product\\Edit.cshtml",
+              "ToolTip": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Views\\Product\\Edit.cshtml",
+              "RelativeToolTip": "SistemaVenda\\Views\\Product\\Edit.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-07T19:53:23.207Z",
               "EditorCaption": ""
             },
             {
@@ -92,9 +96,22 @@
               "RelativeDocumentMoniker": "SistemaVenda\\Controllers\\ProductController.cs",
               "ToolTip": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Controllers\\ProductController.cs",
               "RelativeToolTip": "SistemaVenda\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAowEwAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T18:07:56.112Z",
+              "WhenOpened": "2026-05-07T14:12:45.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Repositories\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "SistemaVenda\\Repositories\\ProductRepository.cs",
+              "ToolTip": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Repositories\\ProductRepository.cs",
+              "RelativeToolTip": "SistemaVenda\\Repositories\\ProductRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-07T20:01:17.135Z",
               "EditorCaption": ""
             }
           ]

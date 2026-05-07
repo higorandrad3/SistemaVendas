@@ -10,7 +10,7 @@ namespace SistemaVenda.Repositories.Interfaces
         Task<Product> GetByIdAsync(int id);
         Task<List<Product>> GetAllProductsAsync();
         Task AddAsync(Product product);
-        Task Update(Product product);
-        Task Save();
+        Task UpdateAsync(Product product);
+        Task SaveAsync();
     }
 }

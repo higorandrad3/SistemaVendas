@@ -431,7 +431,6 @@ C:\Users\User\source\repos\SistemaVendas\SistemaVenda\obj\Debug\net10.0\SistemaV
 C:\Users\User\source\repos\SistemaVendas\SistemaVenda\obj\Debug\net10.0\compressed\heyxglbhgt-{0}-8smay3myhi-8smay3myhi.gz
 C:\Projetos\SistemaVenda\SistemaVenda\obj\Debug\net10.0\compressed\heyxglbhgt-{0}-8smay3myhi-8smay3myhi.gz
 C:\Projetos\SistemaVenda\SistemaVenda\bin\Debug\net10.0\AutoMapper.dll
-C:\Projetos\SistemaVenda\SistemaVenda\bin\Debug\net10.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Projetos\SistemaVenda\SistemaVenda\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Projetos\SistemaVenda\SistemaVenda\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Projetos\SistemaVenda\SistemaVenda\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll

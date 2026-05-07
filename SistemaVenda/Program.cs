@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SistemaVenda.AutoMapper;
 using SistemaVenda.Context;
 using SistemaVenda.Repositories;
 using SistemaVenda.Repositories.Interfaces;
@@ -18,7 +19,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<OrderService>();
 
-builder.Services.AddAutoMapper();
+builder.Services.AddAutoMapper(cfg => { }, typeof(ConfigAutoMapper));
 
 var app = builder.Build();
 
