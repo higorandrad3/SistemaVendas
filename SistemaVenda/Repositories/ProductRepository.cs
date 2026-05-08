@@ -16,6 +16,13 @@ namespace SistemaVenda.Repositories
             await _context.AddAsync(product);
         }
 
+        public async Task DeleteAsync(int id)
+        {
+            var product = await GetByIdAsync(id);
+
+            _context.Products.Remove(product);
+        }
+
         public async Task<List<Product>> GetAllProductsAsync()
         {
             return await _context.Products.ToListAsync();

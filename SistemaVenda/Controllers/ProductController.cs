@@ -45,6 +45,34 @@ namespace SistemaVenda.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //[HttpGet]
+        //public IActionResult Delete([FromRoute] int id)
+        //{
+        //    var product = _productRepository.GetByIdAsync(id);
+
+        //    if (product is null)
+        //        return NotFound();
+
+        //    var productVM = _autoMapper.Map<ProductViewModel>(product);
+
+        //    return View(productVM);
+        //}
+
+        //[HttpDelete("{id:int:min(1)}")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Delete([FromRoute] int id, [FromBody] ProductViewModel productVM)
+        //{
+        //    if (id <= 0)
+        //        return NotFound("ID invalido!");
+
+        //    if (id != productVM.Id)
+        //        return BadRequest("ID diferente.");
+
+        //    await _productRepository.DeleteAsync(id);
+
+        //    return RedirectToAction(nameof(Index));
+        //}
+
         [HttpGet("{id:int:min(1)}")]
         public async Task<IActionResult> Edit([FromRoute] int id)
         {
