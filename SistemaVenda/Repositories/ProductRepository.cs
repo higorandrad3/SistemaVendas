@@ -23,6 +23,11 @@ namespace SistemaVenda.Repositories
             _context.Products.Remove(product);
         }
 
+        public async Task<List<Product>> GetAllActive()
+        {
+            return await _context.Products.Where(p => p.IsActive == true).ToListAsync();
+        }
+
         public async Task<List<Product>> GetAllProductsAsync()
         {
             return await _context.Products.ToListAsync();

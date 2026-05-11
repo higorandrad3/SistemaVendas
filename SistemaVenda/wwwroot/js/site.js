@@ -59,6 +59,14 @@ async function addProductInCart() {
 
     resetProductInfo();
     renderTableRows();
+    updateOrderValue();
+}
+
+function updateOrderValue() {
+    var value = document.getElementById('orderValue');
+    var total = 0;
+    productsInCart.forEach((p) => { total += p.quantity * p.price })
+    value.innerText = total;
 }
 
 function renderTableRows() {

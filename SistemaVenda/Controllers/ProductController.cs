@@ -19,7 +19,7 @@ namespace SistemaVenda.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var products = await _productRepository.GetAllProductsAsync();
+            var products = await _productRepository.GetAllActive();
 
             return View(products);
         }
@@ -45,10 +45,10 @@ namespace SistemaVenda.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //[HttpGet]
-        //public IActionResult Delete([FromRoute] int id)
+        //[HttpGet("/Delete/{id:int:min(1)}")]
+        //public async Task<IActionResult> Delete([FromRoute] int id)
         //{
-        //    var product = _productRepository.GetByIdAsync(id);
+        //    var product = await _productRepository.GetByIdAsync(id);
 
         //    if (product is null)
         //        return NotFound();
@@ -58,9 +58,9 @@ namespace SistemaVenda.Controllers
         //    return View(productVM);
         //}
 
-        //[HttpDelete("{id:int:min(1)}")]
+        //[HttpPost("/Delete/{id:int:min(1)}"), ActionName(nameof(Delete))]
         //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Delete([FromRoute] int id, [FromBody] ProductViewModel productVM)
+        //public async Task<IActionResult> DeleteConfirm([FromRoute] int id, ProductViewModel productVM)
         //{
         //    if (id <= 0)
         //        return NotFound("ID invalido!");
@@ -70,10 +70,12 @@ namespace SistemaVenda.Controllers
 
         //    await _productRepository.DeleteAsync(id);
 
+        //    await _productRepository.SaveAsync();
+
         //    return RedirectToAction(nameof(Index));
         //}
 
-        [HttpGet("{id:int:min(1)}")]
+        [HttpGet("/Edit/{id:int:min(1)}")]
         public async Task<IActionResult> Edit([FromRoute] int id)
         {
             var product = await _productRepository.GetByIdAsync(id);
@@ -86,9 +88,9 @@ namespace SistemaVenda.Controllers
             return View(productVM);
         }
 
-        [HttpPost("{id:int}")]
+        [HttpPost("/Edit/{id:int}"), ActionName(nameof(Edit))]
         [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> Edit([FromRoute] int id, ProductViewModel productVM)
+        public async Task<IActionResult> EditConfirm([FromRoute] int id, ProductViewModel productVM)
         {
             if (id != productVM.Id)
                 return BadRequest();
