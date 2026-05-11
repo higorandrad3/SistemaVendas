@@ -429,9 +429,9 @@ C:\Users\User\source\repos\SistemaVendas\SistemaVenda\bin\Debug\net10.0\runtimes
 C:\Users\User\source\repos\SistemaVendas\SistemaVenda\obj\Debug\net10.0\SistemaVenda.csproj.AssemblyReference.cache
 C:\Users\User\source\repos\SistemaVendas\SistemaVenda\obj\Debug\net10.0\SistemaV.B4B575E0.Up2Date
 C:\Users\User\source\repos\SistemaVendas\SistemaVenda\obj\Debug\net10.0\compressed\heyxglbhgt-{0}-8smay3myhi-8smay3myhi.gz
-C:\Projetos\SistemaVenda\SistemaVenda\obj\Debug\net10.0\compressed\heyxglbhgt-{0}-8smay3myhi-8smay3myhi.gz
 C:\Projetos\SistemaVenda\SistemaVenda\bin\Debug\net10.0\AutoMapper.dll
 C:\Projetos\SistemaVenda\SistemaVenda\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Projetos\SistemaVenda\SistemaVenda\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Projetos\SistemaVenda\SistemaVenda\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
 C:\Projetos\SistemaVenda\SistemaVenda\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+C:\Projetos\SistemaVenda\SistemaVenda\obj\Debug\net10.0\compressed\heyxglbhgt-{0}-9hhu9t46n8-9hhu9t46n8.gz

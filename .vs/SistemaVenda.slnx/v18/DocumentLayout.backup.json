@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Projetos\\SistemaVenda\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|c:\\projetos\\sistemavenda\\sistemavenda\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|solutionrelative:sistemavenda\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|c:\\projetos\\sistemavenda\\sistemavenda\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|solutionrelative:sistemavenda\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|c:\\projetos\\sistemavenda\\sistemavenda\\views\\sale\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|solutionrelative:sistemavenda\\views\\sale\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|c:\\projetos\\sistemavenda\\sistemavenda\\controllers\\salecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|solutionrelative:sistemavenda\\controllers\\salecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|c:\\projetos\\sistemavenda\\sistemavenda\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|solutionrelative:sistemavenda\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|c:\\projetos\\sistemavenda\\sistemavenda\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C4E0CC6-8294-7EB3-B64C-92735B1ADB6E}|SistemaVenda\\SistemaVenda.csproj|solutionrelative:sistemavenda\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Views\\Sale\\Create.cshtml",
-              "RelativeDocumentMoniker": "SistemaVenda\\Views\\Sale\\Create.cshtml",
-              "ToolTip": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Views\\Sale\\Create.cshtml",
-              "RelativeToolTip": "SistemaVenda\\Views\\Sale\\Create.cshtml",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAADUAAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-05-11T14:12:20.39Z",
+              "DocumentIndex": 0,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Repositories\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "SistemaVenda\\Repositories\\ProductRepository.cs",
+              "ToolTip": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Repositories\\ProductRepository.cs",
+              "RelativeToolTip": "SistemaVenda\\Repositories\\ProductRepository.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAA7wDAAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-11T18:20:34.194Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "site.js",
-              "DocumentMoniker": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\wwwroot\\js\\site.js",
-              "RelativeDocumentMoniker": "SistemaVenda\\wwwroot\\js\\site.js",
-              "ToolTip": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\wwwroot\\js\\site.js",
-              "RelativeToolTip": "SistemaVenda\\wwwroot\\js\\site.js",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAwEcAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-05-11T14:11:51.268Z",
+              "DocumentIndex": 1,
+              "Title": "SaleController.cs",
+              "DocumentMoniker": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Controllers\\SaleController.cs",
+              "RelativeDocumentMoniker": "SistemaVenda\\Controllers\\SaleController.cs",
+              "ToolTip": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Controllers\\SaleController.cs",
+              "RelativeToolTip": "SistemaVenda\\Controllers\\SaleController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwB4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-11T18:19:53.294Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Models\\Order.cs",
-              "RelativeDocumentMoniker": "SistemaVenda\\Models\\Order.cs",
-              "ToolTip": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Models\\Order.cs",
-              "RelativeToolTip": "SistemaVenda\\Models\\Order.cs",
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "SistemaVenda\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Projetos\\SistemaVenda\\SistemaVenda\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "SistemaVenda\\Controllers\\ProductController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-11T14:13:24.351Z",
+              "WhenOpened": "2026-05-11T18:19:50.634Z",
               "EditorCaption": ""
             }
           ]

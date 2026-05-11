@@ -42,7 +42,7 @@ namespace SistemaVenda.Repositories
         {
             var res = await _context.Products
                 .AsNoTracking()
-                .Where(p => p.Name.Contains(term))
+                .Where(p => p.Name.ToLower().Contains(term.ToLower()))
                 .Select(p => new ProductDto
                 (
                     p.Id,

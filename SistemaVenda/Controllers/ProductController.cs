@@ -81,7 +81,7 @@ namespace SistemaVenda.Controllers
             var product = await _productRepository.GetByIdAsync(id);
 
             if (product is null)
-                return View();
+                return NotFound();
 
             var productVM = _autoMapper.Map<ProductViewModel>(product);
 

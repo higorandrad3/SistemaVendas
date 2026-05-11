@@ -59,14 +59,22 @@ async function addProductInCart() {
 
     resetProductInfo();
     renderTableRows();
-    updateOrderValue();
+    updateSummary();
 }
 
-function updateOrderValue() {
-    var value = document.getElementById('orderValue');
-    var total = 0;
-    productsInCart.forEach((p) => { total += p.quantity * p.price })
-    value.innerText = total;
+function updateSummary() {
+    var orderValueElement = document.getElementById('orderValue');
+    var totalItemsElement = document.getElementById('totalItems');
+    var orderValue = 0;
+    var totalItems = 0;
+
+    productsInCart.forEach((p) => {
+        orderValue += p.quantity * p.price;
+        totalItems += p.quantity;
+    })
+
+    totalItemsElement.innerText = totalItems;
+    orderValueElement.innerText = orderValue;
 }
 
 function renderTableRows() {
