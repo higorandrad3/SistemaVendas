@@ -2,6 +2,5 @@
 {
     public record ProductDto(
         int id,
-        string name,
-        decimal salePrice);
+        string name);
 }

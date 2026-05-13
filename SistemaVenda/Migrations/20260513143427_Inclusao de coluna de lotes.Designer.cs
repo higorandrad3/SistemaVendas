@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaVenda.Context;
 
@@ -10,9 +11,11 @@ using SistemaVenda.Context;
 namespace SistemaVenda.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260513143427_Inclusao de coluna de lotes")]
+    partial class Inclusaodecolunadelotes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.7");
@@ -35,7 +38,7 @@ namespace SistemaVenda.Migrations
                     b.Property<DateTime?>("ManufacturingDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ProductId")
+                    b.Property<int?>("ProductId")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal?>("PurchasePrice")
@@ -54,7 +57,7 @@ namespace SistemaVenda.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Batchs");
+                    b.ToTable("Batch");
                 });
 
             modelBuilder.Entity("SistemaVenda.Models.Order", b =>
@@ -111,13 +114,9 @@ namespace SistemaVenda.Migrations
 
             modelBuilder.Entity("SistemaVenda.Models.Batch", b =>
                 {
-                    b.HasOne("SistemaVenda.Models.Product", "Product")
+                    b.HasOne("SistemaVenda.Models.Product", null)
                         .WithMany("Batchs")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
+                        .HasForeignKey("ProductId");
                 });
 
             modelBuilder.Entity("SistemaVenda.Models.Product", b =>

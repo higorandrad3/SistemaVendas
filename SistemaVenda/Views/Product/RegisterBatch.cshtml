@@ -1,13 +1,15 @@
-﻿@model ProductViewModel
+﻿@model BatchViewModel
 
 <div class="container py-4">
-    <h3 class="mb-4">Excluir produto</h3>
+    <h3 class="mb-4">Criar novo lote</h3>
     
-    <form asp-action="Delete" method="post" class="row g-3">
-        <div class="col-md-6">
-            <label asp-for="Name" class="form-label">Nome</label>
-            <input asp-for="Name" class="form-control" />
-            <span asp-validation-for="Name" class="text-danger"></span>
+    <form asp-action="RegisterBatch" method="post" class="row g-3">
+        <h3>@TempData["ProductName"]</h3>
+
+        <div class="col-md-3">
+            <label asp-for="BatchId" class="form-label">Lote</label>
+            <input asp-for="BatchId" class="form-control" />
+            <span asp-validation-for="BatchId" class="text-danger"></span>
         </div>
         
         <div class="col-md-3">
@@ -19,6 +21,7 @@
         <div class="col-md-3">
             <label asp-for="StockQuantity" class="form-label">Quantidade</label>
             <input asp-for="StockQuantity" type="number" class="form-control" />
+            <span asp-validation-for="StockQuantity" class="text-danger"></span>
         </div>
 
         <div class="col-md-4">
@@ -33,14 +36,15 @@
         </div>
 
         <div class="col-md-4">
+            <label asp-for="ManufacturingDate" class="form-label">Data de Fabricação</label>
+            <input asp-for="ManufacturingDate" type="date" class="form-control" />
+            <span asp-validation-for="ManufacturingDate" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4">
             <label asp-for="ExpirationDate" class="form-label">Data de Validade</label>
             <input asp-for="ExpirationDate" type="date" class="form-control" />
             <span asp-validation-for="ExpirationDate" class="text-danger"></span>
-        </div>
-
-        <div class="col-12">
-            <label asp-for="Description" class="form-label">Descrição</label>
-            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
         </div>
 
         <div class="col-12">
@@ -51,7 +55,7 @@
         </div>
 
         <div class="col-12 mt-4">
-            <button type="submit" class="btn btn-danger px-4">Deleter Produto</button>
+            <button type="submit" class="btn btn-success px-4">Criar lote</button>
             <a asp-action="Index" class="btn btn-secondary">Voltar</a>
         </div>
     </form>

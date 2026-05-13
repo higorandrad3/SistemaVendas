@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SistemaVenda.Dto;
 using SistemaVenda.Models;
 using SistemaVenda.Repositories.Interfaces;
 using SistemaVenda.Services;
@@ -28,18 +27,6 @@ namespace SistemaVenda.Controllers
             var res = await _productRepository.GetProductsByTermAsync(term);
 
             return Json(res);
-        }
-
-        [HttpPost]
-        [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> FinalizeSale([FromBody] List<ProductSoldDto> productsSoldDto)
-        {
-            if (productsSoldDto is null)
-                return BadRequest("O carrinho de produto está vazia!");
-
-            var order = await _orderService.CreateOrderAsync(productsSoldDto);
-
-            return RedirectToAction(nameof(Summary), order);
         }
 
         [HttpGet]

@@ -16,6 +16,11 @@ namespace SistemaVenda.Repositories
             await _context.AddAsync(product);
         }
 
+        public async Task AddBatchAsync(Batch batch)
+        {
+            await _context.Batchs.AddAsync(batch);
+        }
+
         public async Task DeleteAsync(int id)
         {
             var product = await GetByIdAsync(id);
@@ -38,6 +43,18 @@ namespace SistemaVenda.Repositories
             return await _context.Products.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
         }
 
+        public async Task<Product> GetByIdWithBatchs(int id)
+        {
+            var product = await _context.Products.AsNoTracking().Include(p => p.Batchs).FirstOrDefaultAsync(p => p.Id == id);
+
+            return product;
+        }
+
+        public async Task<Product> GetNameById(int id)
+        {
+            return await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+        }
+
         public async Task<List<ProductDto>> GetProductsByTermAsync(string term)
         {
             var res = await _context.Products
@@ -46,8 +63,7 @@ namespace SistemaVenda.Repositories
                 .Select(p => new ProductDto
                 (
                     p.Id,
-                    p.Name,
-                    p.SalePrice
+                    p.Name
                 ))
                 .ToListAsync();
 
@@ -73,7 +89,6 @@ namespace SistemaVenda.Repositories
         {
             _context.Products.Update(productModified);
 
-            await SaveAsync();
         }
     }
 }

@@ -10,6 +10,9 @@ namespace SistemaVenda.AutoMapper
         {
             CreateMap<Product, ProductViewModel>()
                 .ReverseMap();
+
+            CreateMap<Batch, BatchViewModel>()
+                .ReverseMap();
         }
     }
 }

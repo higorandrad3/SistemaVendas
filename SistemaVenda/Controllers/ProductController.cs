@@ -45,6 +45,46 @@ namespace SistemaVenda.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
+        public async Task<IActionResult> RegisterBatch([FromRoute] int id)
+        {
+            var product = await _productRepository.GetNameById(id);
+
+            if (product is null)
+                return NotFound();
+
+            TempData["ProductName"] = product.Name;
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegisterBatch([FromRoute] int id, BatchViewModel batchVm)
+        {
+            if (!ModelState.IsValid)
+                return View(batchVm);
+
+            var batch = _autoMapper.Map<Batch>(batchVm);
+
+            var product = await _productRepository.GetByIdAsync(id);
+
+            if (product is null)
+                return BadRequest();
+
+            batch.Product = product;
+
+            await _productRepository.AddBatchAsync(batch);
+
+            product.Batchs.Add(batch);
+
+            await _productRepository.UpdateAsync(product);
+
+            await _productRepository.SaveAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
         //[HttpGet("/Delete/{id:int:min(1)}")]
         //public async Task<IActionResult> Delete([FromRoute] int id)
         //{
@@ -78,12 +118,13 @@ namespace SistemaVenda.Controllers
         [HttpGet("/Edit/{id:int:min(1)}")]
         public async Task<IActionResult> Edit([FromRoute] int id)
         {
-            var product = await _productRepository.GetByIdAsync(id);
+            var product = await _productRepository.GetByIdWithBatchs(id);
 
             if (product is null)
                 return NotFound();
 
             var productVM = _autoMapper.Map<ProductViewModel>(product);
+
 
             return View(productVM);
         }
